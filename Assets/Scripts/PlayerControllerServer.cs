@@ -14,7 +14,7 @@ namespace PhotonServerDemo
         private Transform m_transform;
         private Material m_material;
         private float m_h, m_v;
-        private float m_speed = 5.0f;
+        private float m_speed;
 
         private void Awake()
         {
