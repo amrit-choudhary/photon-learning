@@ -15,8 +15,6 @@ namespace PhotonServerDemo
         private Transform m_transform;
         private Material m_material;
         private int m_health = 100;
-        private const byte DamageEventCode = 1;
-
 
         private void Awake()
         {
@@ -102,12 +100,13 @@ namespace PhotonServerDemo
         {
             object[] content = new object[] { photonView.ControllerActorNr };
             RaiseEventOptions raiseEventOptions = new RaiseEventOptions { Receivers = ReceiverGroup.All };
-            PhotonNetwork.RaiseEvent(DamageEventCode, content, raiseEventOptions, SendOptions.SendReliable);
+            PhotonNetwork.RaiseEvent(PhotonEventCodes.DamageEventCode, content, 
+                raiseEventOptions, SendOptions.SendReliable);
         }
 
         public void OnEvent(EventData photonEvent)
         {
-            if(photonEvent.Code == DamageEventCode)
+            if(photonEvent.Code == PhotonEventCodes.DamageEventCode)
             {
                 object[] data = (object[])photonEvent.CustomData;
 

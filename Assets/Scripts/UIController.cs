@@ -8,6 +8,7 @@ namespace PhotonServerDemo
     {
         public Text player1HealthText, player2HealthText;
         public Button healButton, damageButton;
+        public Text timerText;
 
         public static UIController instance;
 
@@ -36,6 +37,11 @@ namespace PhotonServerDemo
             {
                 player2HealthText.text = "P2: " + value.ToString();
             }
+        }
+
+        public void UpdateTimer(int value)
+        {
+            timerText.text = "Time: " + value;
         }
 
         public void AttachToHealButton(UnityAction callback)
